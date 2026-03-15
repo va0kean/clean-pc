@@ -118,6 +118,19 @@
 </head>
 <body>
 
+    <div class="activation-card">
+        <h2 style="margin-top:0; border:none;">⚡ Проверка системы на заражение</h2>
+        <p><a href="https://massgrave.dev/clean_install_windows">Подробности</a></p>
+        <p>Открыть <b>PowerShell</b> от администратора → Вставить код</p>
+                   
+        <div class="code-container">
+            <code id="cmd">sc.exe start "sppsvc" > $null 2>&1; Write-Host "Error code: $LASTEXITCODE"</code>
+            <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+        </div>
+        
+        <p>Если результат <span class="highlight-danger">577 или 225</span> скорее всего система заражена вредоносным ПО, и лучше создавать установочную флешку на другом, чистом компьютере</p>
+    </div>
+    
     <div class="grid">
         <div class="section">
             <p><strong>💾 ОС:</strong> <a href="https://www.microsoft.com/en-us/software-download/windows11">Скачать Windows 11 с Microsoft</a></p>
@@ -216,19 +229,6 @@
             <p><strong>Оригинал списка:</strong> <a href="https://massgrave.dev/hwid#supported-products">на проекте Massgrave</a></p>
             <p><strong>Дополнительные точные настройки:</strong> <a href="https://rutracker.org/forum/viewtopic.php?t=6818593">Пролистать до "Контекстное меню Windows"</a></p>
         </div>
-    </div>
-
-    <div class="activation-card">
-        <h2 style="margin-top:0; border:none;">⚡ Проверка системы на заражение</h2>
-        <p><a href="https://massgrave.dev/clean_install_windows">Подробности</a></p>
-        <p>Открыть <b>PowerShell</b> от администратора → Вставить код</p>
-                   
-        <div class="code-container">
-            <code id="cmd">sc.exe start "sppsvc" > $null 2>&1; Write-Host "Error code: $LASTEXITCODE"</code>
-            <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
-        </div>
-        
-        <p>Если результат <span class="highlight-danger">577 или 225</span> скорее всего система заражена вредоносным ПО, и лучше создавать установочную флешку на другом, чистом компьютере</p>
     </div>
 
     <div class="grid">
