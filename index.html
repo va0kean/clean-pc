@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Dashboard</title>
+    <style>
+        :root {
+            --bg-color: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --text-color: #e0e0e0;
+            --accent-color: #f1c40f;
+            --link-color: #3498db;
+            --success-color: #2ecc71;
+            --border-color: #333;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h2 { 
+            color: var(--accent-color); 
+            border-bottom: 2px solid var(--border-color); 
+            padding-bottom: 8px; 
+            margin-top: 40px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        a { color: var(--link-color); text-decoration: none; transition: 0.2s; }
+        a:hover { color: #5dade2; text-decoration: underline; }
+
+        .activation-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin: 20px 0;
+        }
+
+        .code-container {
+            display: flex;
+            align-items: center;
+            background: #000;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            position: relative;
+            border: 1px dashed #555;
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: #fff;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .copy-btn {
+            background: var(--accent-color);
+            color: #000;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.8rem;
+            margin-left: 15px;
+            transition: transform 0.1s, background 0.2s;
+        }
+
+        .copy-btn:hover { background: #d4ac0d; }
+        .copy-btn:active { transform: scale(0.95); }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th { background-color: #252525; color: var(--accent-color); }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        ul { list-style: none; padding: 0; }
+        li { margin-bottom: 8px; padding-left: 15px; position: relative; }
+        li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        .highlight { color: var(--success-color); font-weight: bold; }
+        .highlight-danger { color: #ff0000; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="grid">
+        <div class="section">
+            <p><strong>💾 ОС:</strong> <a href="https://www.microsoft.com/en-us/software-download/windows11">Скачать Windows 11 с Microsoft</a></p>
+            <p><strong>💾 ОС:</strong> <a href="https://massgrave.dev/windows_11_links">Скачать Windows 11</a></p>
+            <p><strong>💾:</strong> <a href="https://rufus.ie/ru/#download">Скачать Rufus</a></p>
+            <p><strong>Настройка Rufus:</strong><br>
+               1. Удалить требование по ОЗУ<br>
+               2. Удалить требование учётной записи<br>
+               3. Создать локальную учётную запись<br>
+               4. Отключить автоматическое шифрование BitLocker      
+            </p>
+            <p><strong>📂 Office:</strong> <a href="https://massgrave.dev/office_c2r_links#russian-ru-ru">Скачать Office C2R</a></p>
+        </div>
+    </div>
+
+    <div class="activation-card">
+        <h2 style="margin-top:0; border:none;">⚡ Активация Windows и Office</h2>
+        <p><a href="https://massgrave.dev/">Официальный сайт проекта</a></p>
+        <p>Открыть <b>PowerShell</b> → Вставить код</p>
+                   
+        <div class="code-container">
+            <code id="cmd">irm https://get.activated.win | iex</code>
+            <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+        </div>
+        
+        <p>В меню выберите <span class="highlight">зеленый пункт</span> для вашего продукта.</p>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Метод</th>
+                <th>Продукт</th>
+                <th>Срок</th>
+                <th>Онлайн</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>HWID</td><td>Windows 10-11</td><td>Бессрочно</td><td class="highlight">Да</td></tr>
+            <tr><td>Ohook</td><td>Office</td><td>Бессрочно</td><td>Нет</td></tr>
+            <tr><td>TSforge</td><td>Win / Office</td><td>Бессрочно</td><td class="highlight">Да</td></tr>
+            <tr><td>KMS</td><td>Win / Office</td><td>180 дней</td><td class="highlight">Да</td></tr>
+        </tbody>
+    </table>
+
+    <div class="grid">
+        <div class="section">
+            <p><strong>Переустановка Windows 11</strong><br>
+               При переустановке системы на том же ПК (железе) необходимо ввести только ключ используемой ранее редакции. Запускать повторно HWID_Activation не нужно.      
+            </p>
+            <p><strong>Список ключей:</strong> <a href="https://massgrave.dev/hwid#supported-products">найти здесь</a></p>
+            <p><strong>Дополнительные точные настройки:</strong> <a href="https://rutracker.org/forum/viewtopic.php?t=6818593">Пролистать до "Контекстное меню Windows"</a></p>
+        </div>
+    </div>
+
+    <div class="activation-card">
+        <h2 style="margin-top:0; border:none;">⚡ Проверка системы на заражение</h2>
+        <p><a href="https://massgrave.dev/clean_install_windows">Подробности</a></p>
+        <p>Открыть <b>PowerShell</b> от администратора → Вставить код</p>
+                   
+        <div class="code-container">
+            <code id="cmd">sc.exe start "sppsvc" > $null 2>&1; Write-Host "Error code: $LASTEXITCODE"</code>
+            <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+        </div>
+        
+        <p>Если результат <span class="highlight-danger">577 или 225</span> скорее всего система заражена вредоносным ПО.</p>
+    </div>
+
+    <div class="grid">
+        <div class="section">
+            <h2>🛠️ Драйверы</h2>
+            <ul>
+                <li><a href="https://www.intel.com/content/www/us/en/support/detect.html">Intel (Wi-Fi / BT)</a></li>
+                <li><a href="https://www.amd.com/en/products/software/adrenalin.html">AMD Adrenalin</a></li>
+                <li><a href="https://www.nvidia.com/en-us/drivers/">Nvidia GeForce</a></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>📦 Общий софт</h2>
+            <ul>
+                <li><a href="https://www.sumatrapdfreader.org/download-free-pdf-viewer">Sumatra PDF</a> (Легкий ПДФ)</li>
+                <li><a href="https://www.xnview.com/en/xnviewmp/#downloads">XnView MP</a> (Картинки)</li>
+                <li><a href="https://sourceforge.net/projects/mpcbe/">MPC BE</a> (Видео)</li>
+                <li><a href="https://www.foobar2000.org/windows">Foobar2000</a> (Звук)</li>
+                <li><a href="https://rsload.net/repack/kpojiuk/23498-winrar-repack-kpojiuk.html">WinRar Repack</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="grid">
+        <div class="section">
+            <h2>🎨 Дизайн и Графика</h2>
+            <ul>
+                <li><a href="https://www.canva.com/ru_ru/download/windows/">Canva</a> / <a href="https://www.affinity.studio/">Affinity</a></li>
+                <li><a href="https://rsload.net/repack/kpojiuk/23382-coreldraw-graphics-suite-x8-repack-kpojiuk.html">CorelDraw</a></li>
+                <li><a href="https://rsload.net/repack/kpojiuk/23242-adobe-photoshop-repack-kpojiuk-crack.html">Photoshop</a></li>
+                <li><a href="https://rsload.net/repack/kpojiuk/24946-adobe-illustrator-cc-repack-kpojiuk.html">Illustrator</a></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>🎬 Видео и Аудио</h2>
+            <ul>
+                <li><a href="https://apps.cloud.blackmagicdesign.com/davinci-resolve">DaVinci Resolve</a> / <a href="https://www.blender.org/download/">Blender</a></li>
+                <li><a href="https://rsload.net/repack/kpojiuk/23241-adobe-premiere-pro-repack-kpojiuk.html">Premiere Pro</a></li>
+                <li><a href="https://rsload.net/repack/kpojiuk/24925-adobe-after-effects-cc-repack-kpojiuk.html">After Effects</a></li>
+                <li><a href="https://rsload.net/repack/kpojiuk/24924-adobe-audition-cc-repack-kpojiuk.html">Adobe Audition</a></li>
+                <li><a href="https://www.cakewalk.com/sonar">CakeWalk</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>👨‍💻 <код></h2>
+        <ul>
+            <li><a href="https://code.visualstudio.com/">VS Code</a></li>
+            <li><a href="https://cursor.com/download">Cursor</a></li>
+            <li><a href="https://developer.android.com/studio?hl=ru">Android Studio</a></li>
+            <li><a href="https://desktop.github.com/download/">GitHub Desktop</a></li>
+        </ul>
+    </div>
+
+    <script>
+        function copyCode(btn) {
+            const code = btn.parentElement.querySelector('code').innerText;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = 'Готово!';
+                btn.style.background = '#2ecc71';
+                
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.background = '#f1c40f';
+                }, 2000);
+            });
+        }
+    </script>
+
+</body>
+</html>
