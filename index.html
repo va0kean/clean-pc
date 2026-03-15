@@ -228,6 +228,34 @@
             </details>
 
             <p><strong>Дополнительные точные настройки:</strong> <a href="https://rutracker.org/forum/viewtopic.php?t=6818593">взято отсюда</a></p>
+
+            <details style="margin: 20px 0; padding: 15px; background: var(--card-bg); border-radius: 8px; border: 1px solid var(--border-color); cursor: pointer;">
+                <summary style="color: var(--accent-color); font-weight: bold; font-size: 1.1rem; user-select: none;">🔇 Отключение Recall / Windows AI</summary>
+                
+                <p>В Windows есть функция Recall, которая каждые несколько секунд делает скриншоты экрана и использует искусственный интеллект для анализа и сортировки информации. Настоятельно рекомендуется отключить его.</p>
+                
+                <p><strong>Для отключения Recall выполните в Powershell от имени Администратора команду:</strong></p>
+                <div class="code-container">
+                    <code>DISM /Online /Disable-Feature /Featurename:Recall</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+                </div>
+                
+                <p><strong>Для проверки состояния Recall выполните в Powershell от имени Администратора команду:</strong></p>
+                <div class="code-container">
+                    <code>DISM /Online /Get-Featureinfo /Featurename:Recall</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+                </div>
+                
+                <p><strong>Редактор локальной групповой политики:</strong></p>
+                <p>В командной строке выполните команду:</p>
+                <div class="code-container">
+                    <code>gpedit.msc</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+                </div>
+                
+                <p>В открывшемся Редакторе групповой политики перейдите по следующему пути:<br><strong>Конфигурация пользователя → Административные шаблоны → Компоненты Windows → Windows Copilot</strong></p>
+                <p>Перейдите в изменение параметров политики <span class="highlight">«Отключить Windows Copilot»</span>. Выберите параметр <span class="highlight">«Включено»</span> и нажмите <span class="highlight">«Применить»</span>. Обратите внимание на то, что по умолчанию при ненастроенной политике Windows может делать скриншоты.</p>
+            </details>
         </div>
     </div>
 
