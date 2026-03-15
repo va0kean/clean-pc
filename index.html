@@ -368,6 +368,165 @@
 
     <div class="grid">
         <div class="section">
+            <details style="margin: 20px 0; padding: 15px; background: var(--card-bg); border-radius: 8px; border: 1px solid var(--border-color); cursor: pointer;">
+                <summary style="color: var(--accent-color); font-weight: bold; font-size: 1.1rem; user-select: none;">🌐 Microsoft Edge</summary>
+
+                <p>Рекомендуется настроить Microsoft Edge для повышения уровня безопасности и конфиденциальности. Одним из эффективных способов является настройка с помощью политик. Код, который приведен ниже, блокирует надоедливые и небезопасные функции, а также включает безопасные функции. Для каждой политики приведены ссылки для ознакомления. При необходимости уберите из кода те политики, которые вам не подходят. Код составлен для применения политик ко всем пользователям. Для применения политик к текущему пользователю, замените HKLM на HKCU в каждой строке кода.</p>
+
+                <p><strong>Первый запуск - AutoImportAtFirstRun, HideFirstRunExperience</strong></p>
+                <div class="code-container">
+                    <code>REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "AutoImportAtFirstRun" /t REG_DWORD /d 4
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "HideFirstRunExperience" /t REG_DWORD /d 1</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+                </div>
+
+                <p><strong>Рекомендации - ShowRecommendationsEnabled</strong></p>
+                <div class="code-container">
+                    <code>REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "ShowRecommendationsEnabled" /t REG_DWORD /d 0</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+                </div>
+
+                <p><strong>История браузера - SavingBrowserHistoryDisabled</strong></p>
+                <div class="code-container">
+                    <code>REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "SavingBrowserHistoryDisabled" /t REG_DWORD /d 1</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+                </div>
+
+                <p><strong>Microsoft Rewards - ShowMicrosoftRewards</strong></p>
+                <div class="code-container">
+                    <code>REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "ShowMicrosoftRewards" /t REG_DWORD /d 0</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+                </div>
+
+                <p><strong>Расширение «uBlock Origin» для фильтрации контента - ExtensionInstallForcelist</strong></p>
+                <div class="code-container">
+                    <code>REG ADD "HKLM\Software\Policies\Microsoft\Edge\ExtensionInstallForcelist" /f /v "1" /t REG_SZ /d "odfafepnkmbhccpbejgmiehpchacaeak"</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+                </div>
+
+                <p><strong>Обмен данными - BrowserSignin, LocalBrowserDataShareEnabled, SeamlessWebToBrowserSignInEnabled, SyncDisabled</strong></p>
+                <div class="code-container">
+                    <code>REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "BrowserSignin" /t REG_DWORD /d 0
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "LocalBrowserDataShareEnabled" /t REG_DWORD /d 0
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "SeamlessWebToBrowserSignInEnabled" /t REG_DWORD /d 0
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "SyncDisabled" /t REG_DWORD /d 1</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+                </div>
+
+                <p><strong>Автозаполнение данных - AutofillAddressEnabled, AutofillCreditCardEnabled</strong></p>
+                <div class="code-container">
+                    <code>REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "AutofillAddressEnabled" /t REG_DWORD /d 0
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "AutofillCreditCardEnabled" /t REG_DWORD /d 0</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+                </div>
+
+                <p><strong>Конфиденциальность - DiagnosticData, PersonalizationReportingEnabled</strong></p>
+                <div class="code-container">
+                    <code>REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "DiagnosticData" /t REG_DWORD /d 0
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "PersonalizationReportingEnabled" /t REG_DWORD /d 0</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+                </div>
+
+                <p><strong>Блокировка отслеживания - TrackingPrevention</strong></p>
+                <div class="code-container">
+                    <code>REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "TrackingPrevention" /t REG_DWORD /d 3</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+                </div>
+
+                <p><strong>Безопасность - CAPlatformIntegrationEnabled*, DnsOverHttpsMode, DnsOverHttpsTemplates</strong><br>* Политика может вызвать конфликт с антивирусным ПО, которое добавляет в систему свой сертификат для проверки веб-трафика.</p>
+                <div class="code-container">
+                    <code>REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "CAPlatformIntegrationEnabled" /t REG_DWORD /d 0
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "DnsOverHttpsMode" /t REG_SZ /d secure
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "DnsOverHttpsTemplates" /t REG_SZ /d https://one.one.one.one/dns-query</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+                </div>
+
+                <p><strong>Контекстные меню - QuickSearchShowMiniMenu, VisualSearchEnabled</strong></p>
+                <div class="code-container">
+                    <code>REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "QuickSearchShowMiniMenu" /t REG_DWORD /d 0
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "VisualSearchEnabled" /t REG_DWORD /d 0</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+                </div>
+
+                <p><strong>Боковая панель - HubsSidebarEnabled, PersonalizeTopSitesInCustomizeSidebarEnabled</strong></p>
+                <div class="code-container">
+                    <code>REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "HubsSidebarEnabled" /t REG_DWORD /d 0
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "PersonalizeTopSitesInCustomizeSidebarEnabled" /t REG_DWORD /d 0</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+                </div>
+
+                <p><strong>Страница новой вкладки - NewTabPageAllowedBackgroundTypes, NewTabPageContentEnabled, NewTabPageHideDefaultTopSites</strong></p>
+                <div class="code-container">
+                    <code>REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "NewTabPageAllowedBackgroundTypes" /t REG_DWORD /d 3
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "NewTabPageContentEnabled" /t REG_DWORD /d 0
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "NewTabPageHideDefaultTopSites" /t REG_DWORD /d 1</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+                </div>
+
+                <p><strong>Разрешения сайтов - AdsSettingForIntrusiveAdsSites, AudioCaptureAllowed, BlockThirdPartyCookies, DefaultFileSystemWriteGuardSetting, DefaultGeolocationSetting, DefaultNotificationsSetting, DefaultPopupsSetting, DefaultSensorsSetting, DefaultSerialGuardSetting, DefaultWebHidGuardSetting, DefaultWebUsbGuardSetting, DefaultWindowManagementSetting, ScreenCaptureAllowed, VideoCaptureAllowed</strong></p>
+                <div class="code-container">
+                    <code>REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "AdsSettingForIntrusiveAdsSites" /t REG_DWORD /d 2
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "AudioCaptureAllowed" /t REG_DWORD /d 0
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "BlockThirdPartyCookies" /t REG_DWORD /d 1
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "DefaultFileSystemWriteGuardSetting" /t REG_DWORD /d 2
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "DefaultGeolocationSetting" /t REG_DWORD /d 2
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "DefaultNotificationsSetting" /t REG_DWORD /d 2
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "DefaultPopupsSetting" /t REG_DWORD /d 2
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "DefaultSensorsSetting" /t REG_DWORD /d 2
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "DefaultSerialGuardSetting" /t REG_DWORD /d 2
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "DefaultWebHidGuardSetting" /t REG_DWORD /d 2
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "DefaultWebUsbGuardSetting" /t REG_DWORD /d 2
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "DefaultWindowManagementSetting" /t REG_DWORD /d 2
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "ScreenCaptureAllowed" /t REG_DWORD /d 0
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "VideoCaptureAllowed" /t REG_DWORD /d 0</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+                </div>
+
+                <p><strong>Языки - MicrosoftEditorProofingEnabled, TextPredictionEnabled</strong></p>
+                <div class="code-container">
+                    <code>REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "MicrosoftEditorProofingEnabled" /t REG_DWORD /d 0
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "TextPredictionEnabled" /t REG_DWORD /d 0</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+                </div>
+
+                <p><strong>Система и производительность - BackgroundModeEnabled, StartupBoostEnabled</strong></p>
+                <div class="code-container">
+                    <code>REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "BackgroundModeEnabled" /t REG_DWORD /d 0
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "StartupBoostEnabled" /t REG_DWORD /d 0</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+                </div>
+
+                <p><strong>AI - AIGenThemesEnabled, BuiltInAIAPIsEnabled, EdgeHistoryAISearchEnabled, GenAILocalFoundationalModelSettings, Microsoft365CopilotChatIconEnabled</strong></p>
+                <div class="code-container">
+                    <code>REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "AIGenThemesEnabled" /t REG_DWORD /d 0
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "BuiltInAIAPIsEnabled" /t REG_DWORD /d 0
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "EdgeHistoryAISearchEnabled" /t REG_DWORD /d 0
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "GenAILocalFoundationalModelSettings" /t REG_DWORD /d 1
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "Microsoft365CopilotChatIconEnabled" /t REG_DWORD /d 0</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+                </div>
+
+                <p>Чтобы применить выбранные политики сразу, скопируйте их в текстовый документ и сохраните. Далее смените расширение файла с .txt на .bat или .cmd. Запустите файл от имени Администратора, чтобы применить политики. После применения политик необходио перезапустить браузер или открыть служебную страницу edge://policy и нажать "Повторно загрузить политики".</p>
+
+                <p>Для удаления какой-то политики после применения откройте редактор реестра и удалите соответствующий параметр в HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge (для всех пользователей) или HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge (для текущего пользователя). Для удаления всех политик откройте командную строку от имени Администратора и введите:</p>
+
+                <p><strong>для всех пользователей:</strong></p>
+                <div class="code-container">
+                    <code>REG DELETE "HKLM\Software\Policies\Microsoft\Edge" /f</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+                </div>
+
+                <p><strong>для текущего пользователя:</strong></p>
+                <div class="code-container">
+                    <code>REG DELETE "HKCU\Software\Policies\Microsoft\Edge" /f</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+                </div>
+            </details>
+        </div>
+    </div>
+
+    <div class="grid">
+        <div class="section">
             <h2>🛠️ Драйверы</h2>
             <ul>
                 <li><a href="https://www.intel.com/content/www/us/en/support/detect.html">Intel (Wi-Fi / BT)</a></li>
