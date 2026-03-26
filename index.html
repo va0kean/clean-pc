@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,18 +26,26 @@
             margin: 0 auto;
         }
 
-        h2 { 
-            color: var(--accent-color); 
-            border-bottom: 2px solid var(--border-color); 
-            padding-bottom: 8px; 
+        h2 {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
             margin-top: 40px;
             text-transform: uppercase;
             font-size: 1.2rem;
             letter-spacing: 1px;
         }
 
-        a { color: var(--link-color); text-decoration: none; transition: 0.2s; }
-        a:hover { color: #5dade2; text-decoration: underline; }
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        a:hover {
+            color: #5dade2;
+            text-decoration: underline;
+        }
 
         .activation-card {
             background: var(--card-bg);
@@ -85,8 +94,13 @@
             transition: transform 0.1s, background 0.2s;
         }
 
-        .copy-btn:hover { background: #d4ac0d; }
-        .copy-btn:active { transform: scale(0.95); }
+        .copy-btn:hover {
+            background: #d4ac0d;
+        }
+
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
 
         table {
             width: 100%;
@@ -97,13 +111,17 @@
             overflow: hidden;
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid var(--border-color);
             padding: 12px 15px;
             text-align: left;
         }
 
-        th { background-color: #252525; color: var(--accent-color); }
+        th {
+            background-color: #252525;
+            color: var(--accent-color);
+        }
 
         .grid {
             display: grid;
@@ -111,8 +129,17 @@
             gap: 20px;
         }
 
-        ul { list-style: none; padding: 0; }
-        li { margin-bottom: 8px; padding-left: 15px; position: relative; }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+            padding-left: 15px;
+            position: relative;
+        }
+
         li::before {
             content: "→";
             position: absolute;
@@ -120,41 +147,51 @@
             color: var(--accent-color);
         }
 
-        .highlight { color: var(--success-color); font-weight: bold; }
-        .highlight-danger { color: #ff0000; font-weight: bold; }
+        .highlight {
+            color: var(--success-color);
+            font-weight: bold;
+        }
+
+        .highlight-danger {
+            color: #ff0000;
+            font-weight: bold;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="activation-card">
         <h2 style="margin-top:0; border:none;">⚡ Проверка системы на заражение</h2>
         <p><a href="https://massgrave.dev/clean_install_windows">Подробности</a></p>
         <p>Открыть <b>PowerShell</b> от администратора → Вставить код</p>
-                   
+
         <div class="code-container">
             <code id="cmd">sc.exe start "sppsvc" > $null 2>&1; Write-Host "Error code: $LASTEXITCODE"</code>
             <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
         </div>
-        
+
         <p>Если результат <span class="highlight-danger">577 или 225</span> скорее всего система заражена вредоносным ПО
-             и лучше создать установочную флешку на другом, чистом компьютере</p>
+            и лучше создать установочную флешку на другом, чистом компьютере</p>
     </div>
 
     <div class="grid">
         <div class="section">
-            <p><strong>💾 ОС:</strong> <a href="https://www.microsoft.com/en-us/software-download/windows11">Скачать Windows 11 с Microsoft</a></p>
+            <p><strong>💾 ОС:</strong> <a href="https://www.microsoft.com/en-us/software-download/windows11">Скачать
+                    Windows 11 с Microsoft</a></p>
             <p><strong>💾 ОС:</strong> <a href="https://massgrave.dev/windows_11_links">Скачать Windows 11</a></p>
             <p><strong>💾:</strong> <a href="https://rufus.ie/ru/#download">Скачать Rufus</a></p>
             <p><strong>Настройка Rufus:</strong><br>
                 Нужна флешка больше 8 ГБ<br>
-                Схема раздела: GPT<br> 
+                Схема раздела: GPT<br>
                 Целевая система: UEFI<br>
-               1. Удалить требование по ОЗУ<br>
-               2. Удалить требование учётной записи<br>
-               3. Создать локальную учётную запись<br>
-               4. Отключить автоматическое шифрование BitLocker      
+                1. Удалить требование по ОЗУ<br>
+                2. Удалить требование учётной записи<br>
+                3. Создать локальную учётную запись<br>
+                4. Отключить автоматическое шифрование BitLocker
             </p>
-            <p><strong>📂 Office:</strong> <a href="https://massgrave.dev/office_c2r_links#russian-ru-ru">Скачать Office C2R</a></p>
+            <p><strong>📂 Office:</strong> <a href="https://massgrave.dev/office_c2r_links#russian-ru-ru">Скачать Office
+                    C2R</a></p>
         </div>
     </div>
 
@@ -162,12 +199,12 @@
         <h2 style="margin-top:0; border:none;">⚡ Активация Windows и Office</h2>
         <p><a href="https://massgrave.dev/">Официальный сайт проекта</a></p>
         <p>Открыть <b>PowerShell</b> → Вставить код</p>
-                   
+
         <div class="code-container">
             <code id="cmd">irm https://get.activated.win | iex</code>
             <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
         </div>
-        
+
         <p>В меню выберите <span class="highlight">цифру зеленого цвета</span> для вашего продукта.</p>
     </div>
 
@@ -181,21 +218,44 @@
             </tr>
         </thead>
         <tbody>
-            <tr><td>HWID</td><td>Windows 10-11</td><td>Бессрочно</td><td>Да</td></tr>
-            <tr><td>Ohook</td><td>Office</td><td>Бессрочно</td><td>Нет</td></tr>
-            <tr><td>TSforge</td><td>Win / Office</td><td>Бессрочно</td><td>Да</td></tr>
-            <tr><td>KMS</td><td>Win / Office</td><td>180 дней</td><td>Да</td></tr>
+            <tr>
+                <td>HWID</td>
+                <td>Windows 10-11</td>
+                <td>Бессрочно</td>
+                <td>Да</td>
+            </tr>
+            <tr>
+                <td>Ohook</td>
+                <td>Office</td>
+                <td>Бессрочно</td>
+                <td>Нет</td>
+            </tr>
+            <tr>
+                <td>TSforge</td>
+                <td>Win / Office</td>
+                <td>Бессрочно</td>
+                <td>Да</td>
+            </tr>
+            <tr>
+                <td>KMS</td>
+                <td>Win / Office</td>
+                <td>180 дней</td>
+                <td>Да</td>
+            </tr>
         </tbody>
     </table>
 
     <div class="grid">
         <div class="section">
             <p><strong>Переустановка Windows 11</strong><br>
-               При переустановке системы на том же ПК (железе) необходимо ввести только ключ используемой ранее редакции. Запускать повторно HWID_Activation не нужно.      
+                При переустановке системы на том же ПК (железе) необходимо ввести только ключ используемой ранее
+                редакции. Запускать повторно HWID_Activation не нужно.
             </p>
-            
-            <details style="margin: 20px 0; padding: 15px; background: var(--card-bg); border-radius: 8px; border: 1px solid var(--border-color); cursor: pointer;">
-                <summary style="color: var(--accent-color); font-weight: bold; font-size: 1.1rem; user-select: none;">📋 Список ключей:</summary>
+
+            <details
+                style="margin: 20px 0; padding: 15px; background: var(--card-bg); border-radius: 8px; border: 1px solid var(--border-color); cursor: pointer;">
+                <summary style="color: var(--accent-color); font-weight: bold; font-size: 1.1rem; user-select: none;">📋
+                    Список ключей:</summary>
                 <table style="margin-top: 15px;">
                     <thead>
                         <tr>
@@ -205,135 +265,319 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Education</td><td>Education</td><td>YNMGQ-8RYV3-4PGQ3-C8XTP-7CFBY</td></tr>
-                        <tr><td>Education N</td><td>EducationN</td><td>84NGF-MHBT6-FXBX8-QWJK7-DRR8H</td></tr>
-                        <tr><td>Enterprise</td><td>Enterprise</td><td>XGVPP-NMH47-7TTHJ-W3FW7-8HV2C</td></tr>
-                        <tr><td>Enterprise N</td><td>EnterpriseN</td><td>3V6Q6-NQXCX-V8YXR-9QCYV-QPFCT</td></tr>
-                        <tr><td>Enterprise LTSB 2015</td><td>EnterpriseS</td><td>FWN7H-PF93Q-4GGP8-M8RF3-MDWWW</td></tr>
-                        <tr><td>Enterprise LTSB 2016</td><td>EnterpriseS</td><td>NK96Y-D9CD8-W44CQ-R8YTK-DYJWX</td></tr>
-                        <tr><td>Enterprise LTSC 2019</td><td>EnterpriseS</td><td>43TBQ-NH92J-XKTM7-KT3KK-P39PB</td></tr>
-                        <tr><td>Enterprise N LTSB 2015</td><td>EnterpriseSN</td><td>NTX6B-BRYC2-K6786-F6MVQ-M7V2X</td></tr>
-                        <tr><td>Enterprise N LTSB 2016</td><td>EnterpriseSN</td><td>2DBW3-N2PJG-MVHW3-G7TDK-9HKR4</td></tr>
-                        <tr><td>Home</td><td>Core</td><td>YTMG3-N6DKC-DKB77-7M9GH-8HVX7</td></tr>
-                        <tr><td>Home N</td><td>CoreN</td><td>4CPRK-NM3K3-X6XXQ-RXX86-WXCHW</td></tr>
-                        <tr><td>Home China</td><td>CoreCountrySpecific</td><td>N2434-X9D7W-8PF6X-8DV9T-8TYMD</td></tr>
-                        <tr><td>Home Single Language</td><td>CoreSingleLanguage</td><td>BT79Q-G7N6G-PGBYW-4YWX6-6F4BT</td></tr>
-                        <tr><td>IoT Enterprise</td><td>IoTEnterprise</td><td>XQQYW-NFFMW-XJPBH-K8732-CKFFD</td></tr>
-                        <tr><td>IoT Enterprise Subscription</td><td>IoTEnterpriseK</td><td>P8Q7T-WNK7X-PMFXY-VXHBG-RRK69</td></tr>
-                        <tr><td>IoT Enterprise LTSC 2021</td><td>IoTEnterpriseS</td><td>QPM6N-7J2WJ-P88HH-P3YRH-YY74H</td></tr>
-                        <tr><td>IoT Enterprise LTSC 2024</td><td>IoTEnterpriseS</td><td>CGK42-GYN6Y-VD22B-BX98W-J8JXD</td></tr>
-                        <tr><td>IoT Enterprise LTSC Subscription 2024</td><td>IoTEnterpriseSK</td><td>N979K-XWD77-YW3GB-HBGH6-D32MH</td></tr>
-                        <tr><td>Pro</td><td>Professional</td><td>VK7JG-NPHTM-C97JM-9MPGT-3V66T</td></tr>
-                        <tr><td>Pro N</td><td>ProfessionalN</td><td>2B87N-8KFHP-DKV6R-Y2C8J-PKCKT</td></tr>
-                        <tr><td>Pro Education</td><td>ProfessionalEducation</td><td>8PTT6-RNW4C-6V7J2-C2D3X-MHBPB</td></tr>
-                        <tr><td>Pro Education N</td><td>ProfessionalEducationN</td><td>GJTYN-HDMQY-FRR76-HVGC7-QPF8P</td></tr>
-                        <tr><td>Pro for Workstations</td><td>ProfessionalWorkstation</td><td>DXG7C-N36C4-C4HTG-X4T3X-2YV77</td></tr>
-                        <tr><td>Pro N for Workstations</td><td>ProfessionalWorkstationN</td><td>WYPNQ-8C467-V2W6J-TX4WX-WT2RQ</td></tr>
-                        <tr><td>S</td><td>Cloud</td><td>V3WVW-N2PV2-CGWC3-34QGF-VMJ2C</td></tr>
-                        <tr><td>S N</td><td>CloudN</td><td>NH9J3-68WK7-6FB93-4K3DF-DJ4F6</td></tr>
-                        <tr><td>SE</td><td>CloudEdition</td><td>KY7PN-VR6RX-83W6Y-6DDYQ-T6R4W</td></tr>
-                        <tr><td>SE N</td><td>CloudEditionN</td><td>K9VKN-3BGWV-Y624W-MCRMQ-BHDCD</td></tr>
-                        <tr><td>Team</td><td>PPIPro</td><td>XKCNC-J26Q9-KFHD2-FKTHY-KD72Y</td></tr>
+                        <tr>
+                            <td>Education</td>
+                            <td>Education</td>
+                            <td>YNMGQ-8RYV3-4PGQ3-C8XTP-7CFBY</td>
+                        </tr>
+                        <tr>
+                            <td>Education N</td>
+                            <td>EducationN</td>
+                            <td>84NGF-MHBT6-FXBX8-QWJK7-DRR8H</td>
+                        </tr>
+                        <tr>
+                            <td>Enterprise</td>
+                            <td>Enterprise</td>
+                            <td>XGVPP-NMH47-7TTHJ-W3FW7-8HV2C</td>
+                        </tr>
+                        <tr>
+                            <td>Enterprise N</td>
+                            <td>EnterpriseN</td>
+                            <td>3V6Q6-NQXCX-V8YXR-9QCYV-QPFCT</td>
+                        </tr>
+                        <tr>
+                            <td>Enterprise LTSB 2015</td>
+                            <td>EnterpriseS</td>
+                            <td>FWN7H-PF93Q-4GGP8-M8RF3-MDWWW</td>
+                        </tr>
+                        <tr>
+                            <td>Enterprise LTSB 2016</td>
+                            <td>EnterpriseS</td>
+                            <td>NK96Y-D9CD8-W44CQ-R8YTK-DYJWX</td>
+                        </tr>
+                        <tr>
+                            <td>Enterprise LTSC 2019</td>
+                            <td>EnterpriseS</td>
+                            <td>43TBQ-NH92J-XKTM7-KT3KK-P39PB</td>
+                        </tr>
+                        <tr>
+                            <td>Enterprise N LTSB 2015</td>
+                            <td>EnterpriseSN</td>
+                            <td>NTX6B-BRYC2-K6786-F6MVQ-M7V2X</td>
+                        </tr>
+                        <tr>
+                            <td>Enterprise N LTSB 2016</td>
+                            <td>EnterpriseSN</td>
+                            <td>2DBW3-N2PJG-MVHW3-G7TDK-9HKR4</td>
+                        </tr>
+                        <tr>
+                            <td>Home</td>
+                            <td>Core</td>
+                            <td>YTMG3-N6DKC-DKB77-7M9GH-8HVX7</td>
+                        </tr>
+                        <tr>
+                            <td>Home N</td>
+                            <td>CoreN</td>
+                            <td>4CPRK-NM3K3-X6XXQ-RXX86-WXCHW</td>
+                        </tr>
+                        <tr>
+                            <td>Home China</td>
+                            <td>CoreCountrySpecific</td>
+                            <td>N2434-X9D7W-8PF6X-8DV9T-8TYMD</td>
+                        </tr>
+                        <tr>
+                            <td>Home Single Language</td>
+                            <td>CoreSingleLanguage</td>
+                            <td>BT79Q-G7N6G-PGBYW-4YWX6-6F4BT</td>
+                        </tr>
+                        <tr>
+                            <td>IoT Enterprise</td>
+                            <td>IoTEnterprise</td>
+                            <td>XQQYW-NFFMW-XJPBH-K8732-CKFFD</td>
+                        </tr>
+                        <tr>
+                            <td>IoT Enterprise Subscription</td>
+                            <td>IoTEnterpriseK</td>
+                            <td>P8Q7T-WNK7X-PMFXY-VXHBG-RRK69</td>
+                        </tr>
+                        <tr>
+                            <td>IoT Enterprise LTSC 2021</td>
+                            <td>IoTEnterpriseS</td>
+                            <td>QPM6N-7J2WJ-P88HH-P3YRH-YY74H</td>
+                        </tr>
+                        <tr>
+                            <td>IoT Enterprise LTSC 2024</td>
+                            <td>IoTEnterpriseS</td>
+                            <td>CGK42-GYN6Y-VD22B-BX98W-J8JXD</td>
+                        </tr>
+                        <tr>
+                            <td>IoT Enterprise LTSC Subscription 2024</td>
+                            <td>IoTEnterpriseSK</td>
+                            <td>N979K-XWD77-YW3GB-HBGH6-D32MH</td>
+                        </tr>
+                        <tr>
+                            <td>Pro</td>
+                            <td>Professional</td>
+                            <td>VK7JG-NPHTM-C97JM-9MPGT-3V66T</td>
+                        </tr>
+                        <tr>
+                            <td>Pro N</td>
+                            <td>ProfessionalN</td>
+                            <td>2B87N-8KFHP-DKV6R-Y2C8J-PKCKT</td>
+                        </tr>
+                        <tr>
+                            <td>Pro Education</td>
+                            <td>ProfessionalEducation</td>
+                            <td>8PTT6-RNW4C-6V7J2-C2D3X-MHBPB</td>
+                        </tr>
+                        <tr>
+                            <td>Pro Education N</td>
+                            <td>ProfessionalEducationN</td>
+                            <td>GJTYN-HDMQY-FRR76-HVGC7-QPF8P</td>
+                        </tr>
+                        <tr>
+                            <td>Pro for Workstations</td>
+                            <td>ProfessionalWorkstation</td>
+                            <td>DXG7C-N36C4-C4HTG-X4T3X-2YV77</td>
+                        </tr>
+                        <tr>
+                            <td>Pro N for Workstations</td>
+                            <td>ProfessionalWorkstationN</td>
+                            <td>WYPNQ-8C467-V2W6J-TX4WX-WT2RQ</td>
+                        </tr>
+                        <tr>
+                            <td>S</td>
+                            <td>Cloud</td>
+                            <td>V3WVW-N2PV2-CGWC3-34QGF-VMJ2C</td>
+                        </tr>
+                        <tr>
+                            <td>S N</td>
+                            <td>CloudN</td>
+                            <td>NH9J3-68WK7-6FB93-4K3DF-DJ4F6</td>
+                        </tr>
+                        <tr>
+                            <td>SE</td>
+                            <td>CloudEdition</td>
+                            <td>KY7PN-VR6RX-83W6Y-6DDYQ-T6R4W</td>
+                        </tr>
+                        <tr>
+                            <td>SE N</td>
+                            <td>CloudEditionN</td>
+                            <td>K9VKN-3BGWV-Y624W-MCRMQ-BHDCD</td>
+                        </tr>
+                        <tr>
+                            <td>Team</td>
+                            <td>PPIPro</td>
+                            <td>XKCNC-J26Q9-KFHD2-FKTHY-KD72Y</td>
+                        </tr>
                     </tbody>
                 </table>
-                <p><strong>Оригинал списка:</strong> <a href="https://massgrave.dev/hwid#supported-products">на проекте Massgrave</a></p>
+                <p><strong>Оригинал списка:</strong> <a href="https://massgrave.dev/hwid#supported-products">на проекте
+                        Massgrave</a></p>
             </details>
 
-            <p><strong>Дополнительные точные настройки:</strong> <a href="https://rutracker.org/forum/viewtopic.php?t=6818593">взято отсюда</a></p>
+            <p><strong>Дополнительные точные настройки:</strong> <a
+                    href="https://rutracker.org/forum/viewtopic.php?t=6818593">взято отсюда</a></p>
 
-            <details style="margin: 20px 0; padding: 15px; background: var(--card-bg); border-radius: 8px; border: 1px solid var(--border-color); cursor: pointer;">
-                <summary style="color: var(--accent-color); font-weight: bold; font-size: 1.1rem; user-select: none;">🔇 Отключение Recall / Windows AI</summary>
-                
-                <p>В Windows есть функция Recall, которая каждые несколько секунд делает скриншоты экрана и использует искусственный интеллект для анализа и сортировки информации. Настоятельно рекомендуется отключить его.</p>
-                
+            <details
+                style="margin: 20px 0; padding: 15px; background: var(--card-bg); border-radius: 8px; border: 1px solid var(--border-color); cursor: pointer;">
+                <summary style="color: var(--accent-color); font-weight: bold; font-size: 1.1rem; user-select: none;">🔇
+                    Отключение Recall / Windows AI</summary>
+
+                <p>В Windows есть функция Recall, которая каждые несколько секунд делает скриншоты экрана и использует
+                    искусственный интеллект для анализа и сортировки информации. Настоятельно рекомендуется отключить
+                    его.</p>
+
                 <p><strong>Для отключения Recall выполните в Powershell от имени Администратора команду:</strong></p>
                 <div class="code-container">
                     <code>DISM /Online /Disable-Feature /Featurename:Recall</code>
                     <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
                 </div>
-                
-                <p><strong>Для проверки состояния Recall выполните в Powershell от имени Администратора команду:</strong></p>
+
+                <p><strong>Для проверки состояния Recall выполните в Powershell от имени Администратора
+                        команду:</strong></p>
                 <div class="code-container">
                     <code>DISM /Online /Get-Featureinfo /Featurename:Recall</code>
                     <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
                 </div>
-                
+
                 <p><strong>Редактор локальной групповой политики:</strong></p>
                 <p>В командной строке выполните команду:</p>
                 <div class="code-container">
                     <code>gpedit.msc</code>
                     <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
                 </div>
-                
-                <p>В открывшемся Редакторе групповой политики перейдите по следующему пути:<br><strong>Конфигурация пользователя → Административные шаблоны → Компоненты Windows → Windows Copilot</strong></p>
-                <p>Перейдите в изменение параметров политики <span class="highlight">«Отключить Windows Copilot»</span>. Выберите параметр <span class="highlight">«Включено»</span> и нажмите <span class="highlight">«Применить»</span>. Обратите внимание на то, что по умолчанию при ненастроенной политике Windows может делать скриншоты.</p>
+
+                <p>В открывшемся Редакторе групповой политики перейдите по следующему пути:<br><strong>Конфигурация
+                        пользователя → Административные шаблоны → Компоненты Windows → Windows Copilot</strong></p>
+                <p>Перейдите в изменение параметров политики <span class="highlight">«Отключить Windows Copilot»</span>.
+                    Выберите параметр <span class="highlight">«Включено»</span> и нажмите <span
+                        class="highlight">«Применить»</span>. Обратите внимание на то, что по умолчанию при
+                    ненастроенной политике Windows может делать скриншоты.</p>
             </details>
         </div>
     </div>
 
     <div class="grid">
         <div class="section">
-            <details style="margin: 20px 0; padding: 15px; background: var(--card-bg); border-radius: 8px; border: 1px solid var(--border-color); cursor: pointer;">
-                <summary style="color: var(--accent-color); font-weight: bold; font-size: 1.1rem; user-select: none;">💾 UWP-приложения</summary>
-                
-                <p>Многие UWP-приложения, которые предустановлены в Windows и автоматически устанавливаются после подключения к сети Интернет, собирают данные без согласия для огромного количества рекламодателей. Ниже представлен список нерекомендуемых UWP-приложений, которые являются удаляемыми, не являются фреймворками и которые желательно удалить. Для каждого из них приведено его полное имя, которое используется в коде для удаления. Дополнительно приведены ссылки на страницы в Microsoft Store, чтобы была возможность установить их заново. В коде полные имена UWP-приложений приведены в алфавитном порядке и разделены символом "|". Код необходимо выполнять в Powershell от имени Администратора.</p>
+            <details
+                style="margin: 20px 0; padding: 15px; background: var(--card-bg); border-radius: 8px; border: 1px solid var(--border-color); cursor: pointer;">
+                <summary style="color: var(--accent-color); font-weight: bold; font-size: 1.1rem; user-select: none;">💾
+                    UWP-приложения</summary>
+
+                <p>Многие UWP-приложения, которые предустановлены в Windows и автоматически устанавливаются после
+                    подключения к сети Интернет, собирают данные без согласия для огромного количества рекламодателей.
+                    Ниже представлен список нерекомендуемых UWP-приложений, которые являются удаляемыми, не являются
+                    фреймворками и которые желательно удалить. Для каждого из них приведено его полное имя, которое
+                    используется в коде для удаления. Дополнительно приведены ссылки на страницы в Microsoft Store,
+                    чтобы была возможность установить их заново. В коде полные имена UWP-приложений приведены в
+                    алфавитном порядке и разделены символом "|". Код необходимо выполнять в Powershell от имени
+                    Администратора.</p>
 
                 <p><span class="post-u">Нерекомендуемые UWP-приложения</span>:</p>
                 <ol type="1">
-                    <li><a href="https://www.microsoft.com/en-us/edge/features/game-assist" class="postLink">Game Assist</a>: Microsoft.Edge.GameAssist<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9NZKPSTSNW4P" class="postLink">Game Bar</a>*: Microsoft.XboxGamingOverlay<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRD29V9" class="postLink">Microsoft 365</a>: Microsoft.MicrosoftOfficeHub<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9NZBF4GT040C" class="postLink">Microsoft Bing</a>: Microsoft.BingSearch<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9P1J8S7CCWWT" class="postLink">Microsoft Clipchamp</a>: Clipchamp.Clipchamp<br></li>
+                    <li><a href="https://www.microsoft.com/en-us/edge/features/game-assist" class="postLink">Game
+                            Assist</a>: Microsoft.Edge.GameAssist<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9NZKPSTSNW4P" class="postLink">Game Bar</a>*:
+                        Microsoft.XboxGamingOverlay<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRD29V9" class="postLink">Microsoft 365</a>:
+                        Microsoft.MicrosoftOfficeHub<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9NZBF4GT040C" class="postLink">Microsoft Bing</a>:
+                        Microsoft.BingSearch<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9P1J8S7CCWWT" class="postLink">Microsoft
+                            Clipchamp</a>: Clipchamp.Clipchamp<br></li>
                     <li><span class="post-b">Microsoft Teams</span>: MSTeams<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9NBLGGH5R558" class="postLink">Microsoft To Do</a>: Microsoft.Todos<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9NRX63209R7B" class="postLink">Outlook (new)</a>: Microsoft.OutlookForWindows<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9PCFS5B6T72H" class="postLink">Paint</a>: Microsoft.Paint<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9NFTCH6J7FHV" class="postLink">Power Automate</a>: Microsoft.PowerAutomateDesktop<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRFHWD2" class="postLink">Solitaire &amp; Casual Games</a>: Microsoft.MicrosoftSolitaireCollection<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9MV0B5HZVK9Z" class="postLink">Xbox</a>: Microsoft.GamingApp<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRD1HKW" class="postLink">Xbox Identity Provider</a>: Microsoft.XboxIdentityProvider<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9NKNC0LD5NN6" class="postLink">Xbox Live</a>: Microsoft.Xbox.TCUI<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9NBLGGH5R558" class="postLink">Microsoft To Do</a>:
+                        Microsoft.Todos<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9NRX63209R7B" class="postLink">Outlook (new)</a>:
+                        Microsoft.OutlookForWindows<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9PCFS5B6T72H" class="postLink">Paint</a>:
+                        Microsoft.Paint<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9NFTCH6J7FHV" class="postLink">Power Automate</a>:
+                        Microsoft.PowerAutomateDesktop<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRFHWD2" class="postLink">Solitaire &amp; Casual
+                            Games</a>: Microsoft.MicrosoftSolitaireCollection<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9MV0B5HZVK9Z" class="postLink">Xbox</a>:
+                        Microsoft.GamingApp<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRD1HKW" class="postLink">Xbox Identity
+                            Provider</a>: Microsoft.XboxIdentityProvider<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9NKNC0LD5NN6" class="postLink">Xbox Live</a>:
+                        Microsoft.Xbox.TCUI<br></li>
                     <li><span class="post-b">Xbox Speech-to-text</span>: Microsoft.XboxSpeechToTextOverlay<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9P7BP5VNWKX5" class="postLink">Быстрая поддержка</a>: MicrosoftCorporationII.QuickAssist<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9N8MHTPHNGVV" class="postLink">Домашняя версия для разработчиков</a>: Microsoft.Windows.DevHome<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9NBLGGH4QGHW" class="postLink">Записки</a>: Microsoft.MicrosoftStickyNotes<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRFHWKN" class="postLink">Звукозапись</a>: Microsoft.WindowsSoundRecorder<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRFJBBG" class="postLink">Камера</a>: Microsoft.WindowsCamera<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRFJ3PT" class="postLink">Медиаплеер</a>: Microsoft.ZuneMusic<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9NTXGKQ8P7N0" class="postLink">Мобильные устройства</a>: MicrosoftWindows.CrossDevice<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRFHVFW" class="postLink">Новости</a>: Microsoft.BingNews<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9MZ95KL8MR0L" class="postLink">Ножницы</a>: Microsoft.ScreenSketch<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRFJ3Q2" class="postLink">Погода</a>: Microsoft.BingWeather<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9PC1H9VN18CM" class="postLink">Приложение Start Experiences</a>: Microsoft.StartExperiencesApp<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9NMPJ99VJBWV" class="postLink">Связь с телефоном</a>: Microsoft.YourPhone<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9PCSD6N03BKV" class="postLink">Улучшения совместимости приложений Windows</a>: Microsoft.ApplicationCompatibilityEnhancements<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRFJBH4" class="postLink">Фотографии</a>: Microsoft.Windows.Photos<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9NBLGGH4R32N" class="postLink">Центр отзывов</a>: Microsoft.WindowsFeedbackHub<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRFJ3PR" class="postLink">Часы</a>: Microsoft.WindowsAlarms<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9NBLGGH0CB6D" class="postLink">Яндекс.Музыка**</a>: A025C540.Yandex.Music</li>
+                    <li><a href="https://apps.microsoft.com/detail/9P7BP5VNWKX5" class="postLink">Быстрая поддержка</a>:
+                        MicrosoftCorporationII.QuickAssist<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9N8MHTPHNGVV" class="postLink">Домашняя версия для
+                            разработчиков</a>: Microsoft.Windows.DevHome<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9NBLGGH4QGHW" class="postLink">Записки</a>:
+                        Microsoft.MicrosoftStickyNotes<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRFHWKN" class="postLink">Звукозапись</a>:
+                        Microsoft.WindowsSoundRecorder<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRFJBBG" class="postLink">Камера</a>:
+                        Microsoft.WindowsCamera<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRFJ3PT" class="postLink">Медиаплеер</a>:
+                        Microsoft.ZuneMusic<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9NTXGKQ8P7N0" class="postLink">Мобильные
+                            устройства</a>: MicrosoftWindows.CrossDevice<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRFHVFW" class="postLink">Новости</a>:
+                        Microsoft.BingNews<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9MZ95KL8MR0L" class="postLink">Ножницы</a>:
+                        Microsoft.ScreenSketch<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRFJ3Q2" class="postLink">Погода</a>:
+                        Microsoft.BingWeather<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9PC1H9VN18CM" class="postLink">Приложение Start
+                            Experiences</a>: Microsoft.StartExperiencesApp<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9NMPJ99VJBWV" class="postLink">Связь с телефоном</a>:
+                        Microsoft.YourPhone<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9PCSD6N03BKV" class="postLink">Улучшения
+                            совместимости приложений Windows</a>: Microsoft.ApplicationCompatibilityEnhancements<br>
+                    </li>
+                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRFJBH4" class="postLink">Фотографии</a>:
+                        Microsoft.Windows.Photos<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9NBLGGH4R32N" class="postLink">Центр отзывов</a>:
+                        Microsoft.WindowsFeedbackHub<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRFJ3PR" class="postLink">Часы</a>:
+                        Microsoft.WindowsAlarms<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9NBLGGH0CB6D" class="postLink">Яндекс.Музыка**</a>:
+                        A025C540.Yandex.Music</li>
                 </ol>
 
                 <p><span class="post-u">Исключенные UWP-приложения</span>:</p>
                 <ol type="1">
                     <li><span class="post-b">Microsoft Edge</span>: Microsoft.MicrosoftEdge.Stable<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRFJBMP" class="postLink">Microsoft Store</a>: Microsoft.WindowsStore<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9N3RK8ZV2ZR8" class="postLink">Widgets Platform Runtime</a>: Microsoft.WidgetsPlatformRuntime<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9MSSGKG348SP" class="postLink">Windows Web Experience Pack</a>: MicrosoftWindows.Client.WebExperience<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9MSMLRH6LZF3" class="postLink">Блокнот</a>: Microsoft.WindowsNotepad<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRFHVN5" class="postLink">Калькулятор</a>: Microsoft.WindowsCalculator<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9MVZQVXJBQ9V" class="postLink">Расширение для видео AV1</a>: Microsoft.AV1VideoExtension<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9N95Q1ZZPMH4" class="postLink">Расширение для видео MPEG-2</a>: Microsoft.MPEG2VideoExtension<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9PMMSR1CGPWG" class="postLink">Расширение для изображений HEIF</a>: Microsoft.HEIFImageExtension<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9PG2DK419DRG" class="postLink">Расширение для изображений WebP</a>: Microsoft.WebpImageExtension<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9NCTDW2W1BH8" class="postLink">Расширение для необработанных изображений</a>: Microsoft.RawImageExtension<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9PB0TRCNRHFX" class="postLink">Расширение кодировщика видео AVC</a>: Microsoft.AVCEncoderVideoExtension<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9N4D0MSMP0PT" class="postLink">Расширения для VP9-видео</a>: Microsoft.VP9VideoExtensions<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9N4WGH0Z6VHQ" class="postLink">Расширения для видео HEVC от производителя устройства</a>: Microsoft.HEVCVideoExtension<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9N5TDP8VCMHS" class="postLink">Расширения для интернет-мультимедиа</a>: Microsoft.WebMediaExtensions<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9N0DX20HK701" class="postLink">Терминал</a>: Microsoft.WindowsTerminal<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9PKDZBMV1H3T" class="postLink">Техническая поддержка</a>: Microsoft.GetHelp<br></li>
-                    <li><a href="https://apps.microsoft.com/detail/9NBLGGH4LS1F" class="postLink">Узел для покупок в Store</a>: Microsoft.StorePurchaseApp</li>
+                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRFJBMP" class="postLink">Microsoft Store</a>:
+                        Microsoft.WindowsStore<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9N3RK8ZV2ZR8" class="postLink">Widgets Platform
+                            Runtime</a>: Microsoft.WidgetsPlatformRuntime<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9MSSGKG348SP" class="postLink">Windows Web Experience
+                            Pack</a>: MicrosoftWindows.Client.WebExperience<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9MSMLRH6LZF3" class="postLink">Блокнот</a>:
+                        Microsoft.WindowsNotepad<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9WZDNCRFHVN5" class="postLink">Калькулятор</a>:
+                        Microsoft.WindowsCalculator<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9MVZQVXJBQ9V" class="postLink">Расширение для видео
+                            AV1</a>: Microsoft.AV1VideoExtension<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9N95Q1ZZPMH4" class="postLink">Расширение для видео
+                            MPEG-2</a>: Microsoft.MPEG2VideoExtension<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9PMMSR1CGPWG" class="postLink">Расширение для
+                            изображений HEIF</a>: Microsoft.HEIFImageExtension<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9PG2DK419DRG" class="postLink">Расширение для
+                            изображений WebP</a>: Microsoft.WebpImageExtension<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9NCTDW2W1BH8" class="postLink">Расширение для
+                            необработанных изображений</a>: Microsoft.RawImageExtension<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9PB0TRCNRHFX" class="postLink">Расширение кодировщика
+                            видео AVC</a>: Microsoft.AVCEncoderVideoExtension<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9N4D0MSMP0PT" class="postLink">Расширения для
+                            VP9-видео</a>: Microsoft.VP9VideoExtensions<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9N4WGH0Z6VHQ" class="postLink">Расширения для видео
+                            HEVC от производителя устройства</a>: Microsoft.HEVCVideoExtension<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9N5TDP8VCMHS" class="postLink">Расширения для
+                            интернет-мультимедиа</a>: Microsoft.WebMediaExtensions<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9N0DX20HK701" class="postLink">Терминал</a>:
+                        Microsoft.WindowsTerminal<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9PKDZBMV1H3T" class="postLink">Техническая
+                            поддержка</a>: Microsoft.GetHelp<br></li>
+                    <li><a href="https://apps.microsoft.com/detail/9NBLGGH4LS1F" class="postLink">Узел для покупок в
+                            Store</a>: Microsoft.StorePurchaseApp</li>
                 </ol>
 
                 <p><span class="post-u">Удаление нерекомендуемых UWP-приложений</span>:</p>
@@ -353,32 +597,40 @@
                     <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
                 </div>
 
-                <p><span class="post-u">Проверка наличия всех удаляемых UWP-приложений, которые не являются фреймворками</span>:</p>
+                <p><span class="post-u">Проверка наличия всех удаляемых UWP-приложений, которые не являются
+                        фреймворками</span>:</p>
                 <div class="code-container">
                     <code>Get-AppxPackage | where NonRemovable -match 'False' | where IsFramework -match 'False' | select Name,PublisherId,Version,PackageFullName,InstallLocation,Dependencies,SignatureKind | Out-GridView -PassThru</code>
                     <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
                 </div>
 
-                <p>* В случае появления уведомления ms-gamingoverlay при запуске игры выполните в командной строке команду:</p>
+                <p>* В случае появления уведомления ms-gamingoverlay при запуске игры выполните в командной строке
+                    команду:</p>
                 <div class="code-container">
                     <code>REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\GameDVR" /f /v "AppCaptureEnabled" /t REG_DWORD /d 0</code>
                     <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
                 </div>
 
-                <p>** Яндекс.Музыка также загружает Microsoft UI Xaml 2.5. При необходимости можете удалить этот компонент, используя идентификатор Microsoft.UI.Xaml.2.5.</p>
+                <p>** Яндекс.Музыка также загружает Microsoft UI Xaml 2.5. При необходимости можете удалить этот
+                    компонент, используя идентификатор Microsoft.UI.Xaml.2.5.</p>
             </details>
         </div>
     </div>
 
     <div class="grid">
         <div class="section">
-            <details style="margin: 20px 0; padding: 15px; background: var(--card-bg); border-radius: 8px; border: 1px solid var(--border-color); cursor: pointer;">
-                <summary style="color: var(--accent-color); font-weight: bold; font-size: 1.1rem; user-select: none;">🌐 Microsoft Edge</summary>
+            <details
+                style="margin: 20px 0; padding: 15px; background: var(--card-bg); border-radius: 8px; border: 1px solid var(--border-color); cursor: pointer;">
+                <summary style="color: var(--accent-color); font-weight: bold; font-size: 1.1rem; user-select: none;">🌐
+                    Microsoft Edge</summary>
 
-                <p>Рекомендуется настроить Microsoft Edge для повышения уровня безопасности и конфиденциальности. 
-                    Одним из эффективных способов является настройка с помощью политик. Код, который приведен ниже, блокирует надоедливые и небезопасные функции, а также включает безопасные функции. 
-                    Для каждой политики приведены ссылки для ознакомления. При необходимости уберите из кода те политики, которые вам не подходят. 
-                    Код составлен для применения политик ко всем пользователям. Для применения политик к текущему пользователю, замените HKLM на HKCU в каждой строке кода.</p>
+                <p>Рекомендуется настроить Microsoft Edge для повышения уровня безопасности и конфиденциальности.
+                    Одним из эффективных способов является настройка с помощью политик. Код, который приведен ниже,
+                    блокирует надоедливые и небезопасные функции, а также включает безопасные функции.
+                    Для каждой политики приведены ссылки для ознакомления. При необходимости уберите из кода те
+                    политики, которые вам не подходят.
+                    Код составлен для применения политик ко всем пользователям. Для применения политик к текущему
+                    пользователю, замените HKLM на HKCU в каждой строке кода.</p>
 
                 <p><strong>Первый запуск - AutoImportAtFirstRun, HideFirstRunExperience</strong></p>
                 <div class="code-container">
@@ -411,7 +663,8 @@ REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "HideFirstRunExperience" /
                     <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
                 </div>
 
-                <p><strong>Обмен данными - BrowserSignin, LocalBrowserDataShareEnabled, SeamlessWebToBrowserSignInEnabled, SyncDisabled</strong></p>
+                <p><strong>Обмен данными - BrowserSignin, LocalBrowserDataShareEnabled,
+                        SeamlessWebToBrowserSignInEnabled, SyncDisabled</strong></p>
                 <div class="code-container">
                     <code>REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "BrowserSignin" /t REG_DWORD /d 0
 REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "LocalBrowserDataShareEnabled" /t REG_DWORD /d 0
@@ -440,7 +693,9 @@ REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "PersonalizationReportingE
                     <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
                 </div>
 
-                <p><strong>Безопасность - CAPlatformIntegrationEnabled*, DnsOverHttpsMode, DnsOverHttpsTemplates</strong><br>* Политика может вызвать конфликт с антивирусным ПО, которое добавляет в систему свой сертификат для проверки веб-трафика.</p>
+                <p><strong>Безопасность - CAPlatformIntegrationEnabled*, DnsOverHttpsMode,
+                        DnsOverHttpsTemplates</strong><br>* Политика может вызвать конфликт с антивирусным ПО, которое
+                    добавляет в систему свой сертификат для проверки веб-трафика.</p>
                 <div class="code-container">
                     <code>REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "CAPlatformIntegrationEnabled" /t REG_DWORD /d 0
 REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "DnsOverHttpsMode" /t REG_SZ /d secure
@@ -455,14 +710,16 @@ REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "VisualSearchEnabled" /t R
                     <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
                 </div>
 
-                <p><strong>Боковая панель - HubsSidebarEnabled, PersonalizeTopSitesInCustomizeSidebarEnabled</strong></p>
+                <p><strong>Боковая панель - HubsSidebarEnabled, PersonalizeTopSitesInCustomizeSidebarEnabled</strong>
+                </p>
                 <div class="code-container">
                     <code>REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "HubsSidebarEnabled" /t REG_DWORD /d 0
 REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "PersonalizeTopSitesInCustomizeSidebarEnabled" /t REG_DWORD /d 0</code>
                     <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
                 </div>
 
-                <p><strong>Страница новой вкладки - NewTabPageAllowedBackgroundTypes, NewTabPageContentEnabled, NewTabPageHideDefaultTopSites</strong></p>
+                <p><strong>Страница новой вкладки - NewTabPageAllowedBackgroundTypes, NewTabPageContentEnabled,
+                        NewTabPageHideDefaultTopSites</strong></p>
                 <div class="code-container">
                     <code>REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "NewTabPageAllowedBackgroundTypes" /t REG_DWORD /d 3
 REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "NewTabPageContentEnabled" /t REG_DWORD /d 0
@@ -470,7 +727,11 @@ REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "NewTabPageHideDefaultTopS
                     <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
                 </div>
 
-                <p><strong>Разрешения сайтов - AdsSettingForIntrusiveAdsSites, AudioCaptureAllowed, BlockThirdPartyCookies, DefaultFileSystemWriteGuardSetting, DefaultGeolocationSetting, DefaultNotificationsSetting, DefaultPopupsSetting, DefaultSensorsSetting, DefaultSerialGuardSetting, DefaultWebHidGuardSetting, DefaultWebUsbGuardSetting, DefaultWindowManagementSetting, ScreenCaptureAllowed, VideoCaptureAllowed</strong></p>
+                <p><strong>Разрешения сайтов - AdsSettingForIntrusiveAdsSites, AudioCaptureAllowed,
+                        BlockThirdPartyCookies, DefaultFileSystemWriteGuardSetting, DefaultGeolocationSetting,
+                        DefaultNotificationsSetting, DefaultPopupsSetting, DefaultSensorsSetting,
+                        DefaultSerialGuardSetting, DefaultWebHidGuardSetting, DefaultWebUsbGuardSetting,
+                        DefaultWindowManagementSetting, ScreenCaptureAllowed, VideoCaptureAllowed</strong></p>
                 <div class="code-container">
                     <code>REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "AdsSettingForIntrusiveAdsSites" /t REG_DWORD /d 2
 REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "AudioCaptureAllowed" /t REG_DWORD /d 0
@@ -503,7 +764,8 @@ REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "StartupBoostEnabled" /t R
                     <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
                 </div>
 
-                <p><strong>AI - AIGenThemesEnabled, BuiltInAIAPIsEnabled, EdgeHistoryAISearchEnabled, GenAILocalFoundationalModelSettings, Microsoft365CopilotChatIconEnabled</strong></p>
+                <p><strong>AI - AIGenThemesEnabled, BuiltInAIAPIsEnabled, EdgeHistoryAISearchEnabled,
+                        GenAILocalFoundationalModelSettings, Microsoft365CopilotChatIconEnabled</strong></p>
                 <div class="code-container">
                     <code>REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "AIGenThemesEnabled" /t REG_DWORD /d 0
 REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "BuiltInAIAPIsEnabled" /t REG_DWORD /d 0
@@ -513,9 +775,15 @@ REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "Microsoft365CopilotChatIc
                     <button class="copy-btn" onclick="copyCode(this)">Копировать</button>
                 </div>
 
-                <p>Чтобы применить выбранные политики сразу, скопируйте их в текстовый документ и сохраните. Далее смените расширение файла с .txt на .bat или .cmd. Запустите файл от имени Администратора, чтобы применить политики. После применения политик необходио перезапустить браузер или открыть служебную страницу edge://policy и нажать "Повторно загрузить политики".</p>
+                <p>Чтобы применить выбранные политики сразу, скопируйте их в текстовый документ и сохраните. Далее
+                    смените расширение файла с .txt на .bat или .cmd. Запустите файл от имени Администратора, чтобы
+                    применить политики. После применения политик необходио перезапустить браузер или открыть служебную
+                    страницу edge://policy и нажать "Повторно загрузить политики".</p>
 
-                <p>Для удаления какой-то политики после применения откройте редактор реестра и удалите соответствующий параметр в HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge (для всех пользователей) или HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge (для текущего пользователя). Для удаления всех политик откройте командную строку от имени Администратора и введите:</p>
+                <p>Для удаления какой-то политики после применения откройте редактор реестра и удалите соответствующий
+                    параметр в HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge (для всех пользователей) или
+                    HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge (для текущего пользователя). Для удаления всех
+                    политик откройте командную строку от имени Администратора и введите:</p>
 
                 <p><strong>для всех пользователей:</strong></p>
                 <div class="code-container">
@@ -559,9 +827,15 @@ REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "Microsoft365CopilotChatIc
             <ul>
                 <li><a href="https://www.canva.com/ru_ru/download/windows/">Canva</a></li>
                 <li><a href="https://www.affinity.studio/">Affinity</a></li>
-                <li><a href="https://rsload.net/repack/kpojiuk/23382-coreldraw-graphics-suite-x8-repack-kpojiuk.html">CorelDraw</a></li>
-                <li><a href="https://rsload.net/repack/kpojiuk/23242-adobe-photoshop-repack-kpojiuk-crack.html">Photoshop</a></li>
-                <li><a href="https://rsload.net/repack/kpojiuk/24946-adobe-illustrator-cc-repack-kpojiuk.html">Illustrator</a></li>
+                <li><a
+                        href="https://rsload.net/repack/kpojiuk/23382-coreldraw-graphics-suite-x8-repack-kpojiuk.html">CorelDraw</a>
+                </li>
+                <li><a
+                        href="https://rsload.net/repack/kpojiuk/23242-adobe-photoshop-repack-kpojiuk-crack.html">Photoshop</a>
+                </li>
+                <li><a
+                        href="https://rsload.net/repack/kpojiuk/24946-adobe-illustrator-cc-repack-kpojiuk.html">Illustrator</a>
+                </li>
             </ul>
         </div>
         <div class="section">
@@ -569,33 +843,38 @@ REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "Microsoft365CopilotChatIc
             <ul>
                 <li><a href="https://apps.cloud.blackmagicdesign.com/davinci-resolve">DaVinci Resolve</a></li>
                 <li><a href="https://www.blender.org/download/">Blender</a></li>
-                <li><a href="https://rsload.net/repack/kpojiuk/23241-adobe-premiere-pro-repack-kpojiuk.html">Premiere Pro</a></li>
-                <li><a href="https://rsload.net/repack/kpojiuk/24925-adobe-after-effects-cc-repack-kpojiuk.html">After Effects</a></li>
-                <li><a href="https://rsload.net/repack/kpojiuk/24924-adobe-audition-cc-repack-kpojiuk.html">Adobe Audition</a></li>
+                <li><a href="https://rsload.net/repack/kpojiuk/23241-adobe-premiere-pro-repack-kpojiuk.html">Premiere
+                        Pro</a></li>
+                <li><a href="https://rsload.net/repack/kpojiuk/24925-adobe-after-effects-cc-repack-kpojiuk.html">After
+                        Effects</a></li>
+                <li><a href="https://rsload.net/repack/kpojiuk/24924-adobe-audition-cc-repack-kpojiuk.html">Adobe
+                        Audition</a></li>
                 <li><a href="https://www.cakewalk.com/sonar">CakeWalk</a></li>
             </ul>
         </div>
     </div>
 
     <div class="section">
-        <h2>👨‍💻 <код></h2>
+        <h2>👨‍💻 <код>
+        </h2>
         <ul>
             <li><a href="https://code.visualstudio.com/">VS Code</a></li>
             <li><a href="https://cursor.com/download">Cursor</a></li>
             <li><a href="https://developer.android.com/studio?hl=ru">Android Studio</a></li>
             <li><a href="https://desktop.github.com/download/">GitHub Desktop</a></li>
+            <li><a href="https://antigravity.google/download">Antigravity</a></li>
         </ul>
     </div>
 
     <script>
         function copyCode(btn) {
             const code = btn.parentElement.querySelector('code').innerText;
-            
+
             navigator.clipboard.writeText(code).then(() => {
                 const originalText = btn.innerText;
                 btn.innerText = 'Готово!';
                 btn.style.background = '#2ecc71';
-                
+
                 setTimeout(() => {
                     btn.innerText = originalText;
                     btn.style.background = '#f1c40f';
@@ -605,4 +884,5 @@ REG ADD "HKLM\Software\Policies\Microsoft\Edge" /f /v "Microsoft365CopilotChatIc
     </script>
 
 </body>
+
 </html>
